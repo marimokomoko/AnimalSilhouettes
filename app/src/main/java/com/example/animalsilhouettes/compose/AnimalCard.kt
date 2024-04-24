@@ -22,8 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.animalsilhouettes.R
 
 @Composable
-//fun AnimalCard(animalName: String, imgId: Int) {
-fun AnimalCard() {
+fun AnimalCard(animalName: String, imgId: Int) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -33,14 +32,14 @@ fun AnimalCard() {
             .padding(horizontal = 10.dp, vertical = 20.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.cat),
+            painter = painterResource(id = imgId),
             contentDescription = "cat",
             modifier = Modifier
                 .size(100.dp)
                 .clip(RoundedCornerShape(10.dp))
         )
         Text(
-            text = "ネコちゃん",
+            text = animalName,
             color = Color.DarkGray,
             fontSize = 16.sp,
             fontWeight = FontWeight.ExtraBold,
@@ -51,5 +50,8 @@ fun AnimalCard() {
 @Preview(showBackground = true)
 @Composable
 private fun AnimalCardPre() {
-    AnimalCard()
+    AnimalCard(
+        animalName = "cat",
+        imgId = R.drawable.cat
+    )
 }

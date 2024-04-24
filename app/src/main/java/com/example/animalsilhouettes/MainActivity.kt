@@ -102,8 +102,12 @@ fun MainContent() {
             fontSize = 16.sp,
             fontWeight = FontWeight.ExtraBold,
         )
+        Spacer(modifier = Modifier.height(20.dp))
         if (IsShowDetail) {
-            AnimalCard()
+            AnimalCard(
+                animalName = "cat",
+                imgId = R.drawable.cat
+            )
         }
     }
 }
