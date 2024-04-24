@@ -71,7 +71,7 @@ fun MainContent() {
         Spacer(modifier = Modifier.height(20.dp))
         Image(
             painter = painterResource(id = R.drawable.cat_si),
-            contentDescription = "profile",
+            contentDescription = "cat",
             modifier = Modifier
                 .size(100.dp)
                 .clip(RoundedCornerShape(10.dp))
