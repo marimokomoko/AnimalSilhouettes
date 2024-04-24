@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -57,8 +58,13 @@ fun AnimalView(
                 bottom = 12.dp
             )
         ) {
+            val icon = if (isVisible) {
+                Icons.Filled.KeyboardArrowDown
+            } else {
+                Icons.Filled.KeyboardArrowUp
+            }
             Icon(
-                Icons.Filled.KeyboardArrowDown,
+                icon,
                 contentDescription = "KeyboardArrowDown",
                 modifier = Modifier.size(ButtonDefaults.IconSize)
             )
