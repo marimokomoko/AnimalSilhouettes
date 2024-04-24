@@ -30,6 +30,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.animalsilhouettes.R
 
+/**
+ * AnimalView:アニマルたちのイメージ画像を表示する関数
+ * @param id 機能追加等で使うかもしれないID(現在は未使用)
+ * @param imgName シークレット用アニマルたち画像の名前を受け取るプロパティ
+ * @param imgRId シークレット用アニマルたち画像のリソースIDを受け取るプロパティ
+ */
 @Composable
 fun AnimalView(
     id: Int,
@@ -85,7 +91,9 @@ fun AnimalView(
             "rabbit" -> R.drawable.rabbit
             else -> null
         }
+        // タップボタンで表示制御
         if (isVisible && painterId != null) {
+            //　正解用アニマルたちのイメージ画像を表示
             Image(
                 painter = painterResource(id = painterId),
                 contentDescription = "",

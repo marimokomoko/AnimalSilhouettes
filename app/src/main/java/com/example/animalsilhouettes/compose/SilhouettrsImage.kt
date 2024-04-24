@@ -7,9 +7,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.animalsilhouettes.R
 
+/**
+ * SilhouettrsImage:シークレット用アニマルたちのイメージ画像を用意する関数
+ */
 @Composable
 fun SilhouettrsImage() {
     Box(contentAlignment = Alignment.TopCenter) {
@@ -39,9 +41,4 @@ fun SilhouettrsImage() {
             }
         }
     }
-}
-@Preview(showBackground = true)
-@Composable
-private fun SilhouettrsImagePre() {
-    SilhouettrsImage()
 }
