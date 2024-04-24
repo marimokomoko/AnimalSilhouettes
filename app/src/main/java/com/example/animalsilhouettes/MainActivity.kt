@@ -53,7 +53,7 @@ fun MainContent() {
         Text(
             text = "あにまるシルエット",
             color = Color.DarkGray,
-            fontSize = 24.sp,
+            fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = 16.dp)
@@ -61,7 +61,7 @@ fun MainContent() {
         Text(
             text = "横にスクロールしてみよう",
             color = Color.LightGray,
-            fontSize = 14.sp,
+            fontSize = 20.sp,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(bottom = 16.dp)
