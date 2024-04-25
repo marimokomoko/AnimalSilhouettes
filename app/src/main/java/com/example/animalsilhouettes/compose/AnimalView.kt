@@ -82,12 +82,12 @@ fun AnimalView(
             "cat" -> R.drawable.cat
             "dog" -> R.drawable.dog
             "chicken" -> R.drawable.chicken
+            "lion" -> R.drawable.lion
+            "pig" -> R.drawable.pig
             "crocodile" -> R.drawable.crocodile
             "hedgehog" -> R.drawable.hedgehog
             "koala" -> R.drawable.koala
-            "lion" -> R.drawable.lion
             "owl" -> R.drawable.owl
-            "pig" -> R.drawable.pig
             "turtle" -> R.drawable.turtle
             "rabbit" -> R.drawable.rabbit
             else -> null
@@ -97,7 +97,7 @@ fun AnimalView(
             //　正解用アニマルたちのイメージ画像を表示
             Image(
                 painter = painterResource(id = painterId),
-                contentDescription = "",
+                contentDescription = imgName,
                 modifier = Modifier
                     .size(250.dp)
                     .padding(8.dp)

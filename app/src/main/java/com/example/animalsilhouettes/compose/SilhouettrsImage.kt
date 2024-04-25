@@ -20,12 +20,12 @@ fun SilhouettrsImage() {
             Pair("cat", R.drawable.cat_si),
             Pair("dog", R.drawable.dog_si),
             Pair("chicken", R.drawable.chicken_si),
+            Pair("lion", R.drawable.lion_si),
+            Pair("pig", R.drawable.pig_si),
             Pair("crocodile", R.drawable.crocodile_si),
             Pair("hedgehog", R.drawable.hedgehog_si),
             Pair("koala", R.drawable.koala_si),
-            Pair("lion", R.drawable.lion_si),
             Pair("owl", R.drawable.owl_si),
-            Pair("pig", R.drawable.pig_si),
             Pair("turtle", R.drawable.turtle_si),
             Pair("rabbit", R.drawable.rabbit_si)
         )
@@ -36,8 +36,8 @@ fun SilhouettrsImage() {
             imgItems.forEach { (imgName, imgResourceId) ->
                 AnimalView(
                     id = imgName.length,
-                    imgName = imgName,
-                    imgRId = imgResourceId
+                    imgName = "",
+                    imgRId = imgResourceId,
                 )
             }
         }
