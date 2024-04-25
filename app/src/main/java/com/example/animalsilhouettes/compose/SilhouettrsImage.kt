@@ -36,7 +36,7 @@ fun SilhouettrsImage() {
             imgItems.forEach { (imgName, imgResourceId) ->
                 AnimalView(
                     id = imgName.length,
-                    imgName = "",
+                    imgName = imgName,
                     imgRId = imgResourceId,
                 )
             }
