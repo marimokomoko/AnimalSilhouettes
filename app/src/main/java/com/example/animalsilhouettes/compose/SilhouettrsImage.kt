@@ -18,6 +18,7 @@ fun SilhouettrsImage() {
         val scrollState = rememberScrollState()
         val imgItems = listOf(
             Pair("cat", R.drawable.cat_si),
+            Pair("dog", R.drawable.dog_si),
             Pair("chicken", R.drawable.chicken_si),
             Pair("crocodile", R.drawable.crocodile_si),
             Pair("hedgehog", R.drawable.hedgehog_si),

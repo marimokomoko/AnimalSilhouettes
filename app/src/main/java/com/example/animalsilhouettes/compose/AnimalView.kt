@@ -80,6 +80,7 @@ fun AnimalView(
         Spacer(modifier = Modifier.height(20.dp))
         val painterId = when (imgName) {
             "cat" -> R.drawable.cat
+            "dog" -> R.drawable.dog
             "chicken" -> R.drawable.chicken
             "crocodile" -> R.drawable.crocodile
             "hedgehog" -> R.drawable.hedgehog
