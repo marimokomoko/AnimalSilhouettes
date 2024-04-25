@@ -1,5 +1,6 @@
 package com.example.animalsilhouettes.compose
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -24,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -38,14 +41,21 @@ import com.example.animalsilhouettes.R
  */
 @Composable
 fun AnimalView(
-    id: Int,
+//    id: Int,
     imgName: String,
     imgRId: Int,
 ) {
-    var isVisible by remember { mutableStateOf(false) }
+    var isVisible by remember { mutableStateOf(false) } // 正解用アニマルたちの表示制御用
+    val soundPlayer = SoundPlayer(LocalContext.current, R.raw.cat_sounds)   // 鳴き声音声用のMediaPlayer初期化
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Button(onClick = {
+            soundPlayer.start()
+        }) {
+            Icon(Icons.Filled.PlayArrow, contentDescription = "")
+            Text(text = "鳴き声")
+        }
         Image(
             painter = painterResource(id = imgRId),
             contentDescription = imgName,
@@ -92,23 +102,29 @@ fun AnimalView(
             "rabbit" -> R.drawable.rabbit
             else -> null
         }
+        Log.d("::::::::AnimaeView", "$isVisible & $imgName & $painterId")
         // タップボタンで表示制御
         if (isVisible && painterId != null) {
-            //　正解用アニマルたちのイメージ画像を表示
-            Image(
-                painter = painterResource(id = painterId),
-                contentDescription = imgName,
-                modifier = Modifier
-                    .size(250.dp)
-                    .padding(8.dp)
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = imgName,
-                color = Color.DarkGray,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.ExtraBold,
-            )
+            correctAnswerAnimalImage(imgName, painterId)
         }
     }
+}
+
+//　正解用アニマルたちのイメージ画像を表示
+@Composable
+fun correctAnswerAnimalImage(imgName: String, painterId: Int) {
+    Image(
+        painter = painterResource(id = painterId),
+        contentDescription = imgName,
+        modifier = Modifier
+            .size(250.dp)
+            .padding(8.dp)
+    )
+    Spacer(modifier = Modifier.height(20.dp))
+    Text(
+        text = imgName,
+        color = Color.DarkGray,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.ExtraBold,
+    )
 }
