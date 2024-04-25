@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -46,16 +48,20 @@ fun AnimalView(
     imgRId: Int,
 ) {
     var isVisible by remember { mutableStateOf(false) } // 正解用アニマルたちの表示制御用
-    val soundPlayer = SoundPlayer(LocalContext.current, R.raw.cat_sounds)   // 鳴き声音声用のMediaPlayer初期化
+    val soundResourceId = getSoundResourse(imgName) // アニマルの鳴き声を取得
+    val soundPlayer = SoundPlayer(LocalContext.current, soundResourceId) // SoundPlayer初期化
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
+        // 鳴き声再生ボタン
         Button(onClick = {
             soundPlayer.start()
         }) {
             Icon(Icons.Filled.PlayArrow, contentDescription = "")
             Text(text = "鳴き声")
         }
+        // アニマルたちのシルエット画像表示
         Image(
             painter = painterResource(id = imgRId),
             contentDescription = imgName,
@@ -65,6 +71,7 @@ fun AnimalView(
                 .padding(8.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
+        // 正解用アニマルたちタップボタン
         Button(
             onClick = { isVisible = !isVisible },
             contentPadding = PaddingValues(
